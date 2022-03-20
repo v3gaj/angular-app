@@ -1,0 +1,30 @@
+<div class="wrapper">
+    <div class="chart-wrapper">
+        <div class="chart">
+            <app-bar-chart
+                [chartLabels]="totalChartLabels"
+                [chartData]="bidTotalChartData"
+                [chartColors]="bidTotalColors"
+            ></app-bar-chart>
+        </div>
+    </div>
+
+    <div class="chart-wrapper">
+        <div class="chart">
+            <app-bar-chart
+                [chartLabels]="totalChartLabels"
+                [chartData]="quatityTotalChartData"
+                [chartColors]="quatityTotalColors"
+            ></app-bar-chart>
+        </div>
+    </div>
+
+    <div class="chart-wrapper">
+        <div class="chart">
+            <app-pie-chart
+                [chartLabels]="totalChartLabels"
+                [chartData]="tradeTotalTransactionChartData"
+            ></app-pie-chart>
+        </div>
+    </div>
+</div>
