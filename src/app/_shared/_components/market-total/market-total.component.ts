@@ -12,6 +12,7 @@ import * as fromMarket from '../../_reducers/index'
 export class MarketTotalComponent implements OnInit {
 
   public totalChartLabels: Label[] = [];
+  
   public bidTotalChartData: ChartDataSets[] = [
     { data: [], label: 'Total Bid' }
   ];
@@ -22,10 +23,6 @@ export class MarketTotalComponent implements OnInit {
 
   public tradeTotalTransactionChartData: SingleDataSet = [];
 
-  // public transactionTotalChartData: ChartDataSets[] = [
-  //   { data: [], label: 'Total Transactions' }
-  // ];
-
   public bidTotalColors: Color[] = [
     { backgroundColor: '#8cc8f4' },
   ]
@@ -34,16 +31,11 @@ export class MarketTotalComponent implements OnInit {
     { backgroundColor: '#ffe29e' },
   ]
 
-  // public transactionTotalColors: Color[] = [
-  //   { backgroundColor: '#ffa3b5' },
-  // ]
-
   constructor(private store: Store<fromMarket.State>) {
     store.pipe(select(fromMarket.getMarketTotal)).subscribe(res => {
       this.bidTotalChartData[0].data = [];
       this.quatityTotalChartData[0].data = [];
       this.tradeTotalTransactionChartData = [];
-      // this.transactionTotalChartData[0].data = [];
 
       res.forEach(total => {
         if(!this.totalChartLabels.includes(total.symbol!)) {
@@ -56,12 +48,10 @@ export class MarketTotalComponent implements OnInit {
 
         this.tradeTotalTransactionChartData.push(total.totalTransactions!);
         
-        // this.transactionTotalChartData[0].data!.push(total.totalTransactions!);
       });
     })
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }
